@@ -7,11 +7,12 @@ function MainCtl($scope, $route) {
         {
             id : 'files',
             title : 'Files'
-        },
-        {
-            id : 'timer',
-            title : 'Tomato Timer'
         }
+        // ,
+        // {
+        //     id : 'timer',
+        //     title : 'Tomato Timer'
+        // }
     ];
 
     $scope.sectionClass=function(section){
