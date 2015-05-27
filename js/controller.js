@@ -32,6 +32,15 @@ function HomeController($scope, $routeParams, Data){
 function FilesController($scope, $routeParams, Data) {
     $scope.id = 'files';
     $scope.files = Data.files;
+    var visibleFileCount = 0;
+    var files = $scope.files;
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      if (!file.hide) {
+        visibleFileCount++;
+      }
+    }
+    $scope.visibleFileCount = visibleFileCount;
 }
 
 
@@ -46,14 +55,16 @@ myApp.factory('Data', function () {
     var obj = {};
     var resume = {
         title : 'Resume',
-        url : 'XiaozhongPanResume.pdf'
+        url : 'XiaozhongPanResume.pdf',
+        hide : true
     };
     obj.resume = resume;
     obj.files = [
         resume,
         {
             title : 'Virginia Tech Unofficial Academic Transcript',
-            url : 'XiaozhongPanUnofficialAcademicTranscipt.pdf'
+            url : 'XiaozhongPanUnofficialAcademicTranscipt.pdf',
+            hide : true
         }
     ];
     return obj;
