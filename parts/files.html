@@ -1,10 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-body">
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="file in files" ng-hide="{{file.hide}}">
+        <li class="list-group-item" ng-repeat="file in vm.files" ng-hide="{{file.hide}}">
           <a href="{{file.url}}" title="{{file.title}}" target="_blank">{{file.title}}</a>
         </li>
-        <li class="list-group-item" ng-show="{{visibleFileCount == 0}}">
+        <li class="list-group-item" ng-show="{{vm.visibleFileCount == 0}}">
           Nothing here.
         </li>
       </ul>
