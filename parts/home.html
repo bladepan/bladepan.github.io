@@ -1,20 +1,34 @@
-<div class="jumbotron">
-  <h1>Xiaozhong Pan <small>I go by "Pan"</small></h1>
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Xiaozhong Pan <span class="md-caption">I go by "Pan"</span></span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>Software engineer in Seattle.</p>
+    <p>I have worked on various kinds of projects, please go to my Linkedin profile page for details.</p>
+  </md-card-content>
 
-  <p>Software engineer in Seattle.</p>
-  <p>I have worked on various kinds of projects, please go to my Linkedin profile page for details.</p>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button href="http://www.linkedin.com/in/pan1987" target="_blank" title="My Linkedin Profile">Linkedin Profile</md-button>
+    <md-button href="{{vm.resume.url}}" target="_blank" title="{{vm.resume.title}}" ng-hide="{{vm.resume.hide}}">{{vm.resume.title}}</md-button>
+    <md-button href="https://github.com/bladepan/" target="_blank" title="My Github Account">
+      <md-icon md-svg-src="GitHub-Mark/svg/mark-github.svg"></md-icon>
+      Github
+    </md-button>
+  </md-card-actions>
+</md-card>
 
-  <a class="btn btn-primary btn-lg" href="http://www.linkedin.com/in/pan1987" target="_blank" title="My Linkedin Profile">Linkedin Profile</a>
-  
-  <a class="btn btn-info btn-lg" href="{{vm.resume.url}}" target="_blank" title="{{vm.resume.title}}" ng-hide="{{vm.resume.hide}}">{{vm.resume.title}}</a>
+<div layout-xs="column" layout="row">
+  <div flex-xs flex-gt-xs="30" layout="column">
+   <md-card>
+      <img ng-src="img/WilliamCaldwell.jpg" class="md-card-image" alt="William Caldwell" style="width: 240px; height: 320px;"/>
+    </md-card>
+  </div>
 
-  <a title="My Github Account" href="https://github.com/bladepan/" target="_blank" class="btn btn-info btn-lg">
-    <span>Github</span> <img src="GitHub-Mark/PNG/GitHub-Mark-32px.png"/>
-  </a>
-
-</div>
-
-<div>
-  <img data-src="holder.js/240x320" src="img/WilliamCaldwell.jpg" class="img-thumbnail" alt="William Caldwell" style="width: 240px; height: 320px;"/>
-  <img data-src="holder.js/240x320" src="img/2014-02-13.jpg" class="img-thumbnail" alt="Snow" style="width: 240px; height: 320px;"/>
+  <div flex-xs flex-gt-xs="30" layout="column">
+   <md-card>
+      <img ng-src="img/2014-02-13.jpg" class="md-card-image" alt="Snow" style="width: 240px; height: 320px;"/>
+    </md-card>
+  </div>
 </div>

@@ -3,25 +3,7 @@
 
 module bladepan.site {
 
-  class ConfigFn{
-    static $inject = ['$stateProvider', '$urlRouterProvider'];
-    constructor($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider) {
-      $stateProvider.state('home', {
-        url : '',
-        controller : 'HomeController',
-        controllerAs : 'vm',
-        templateUrl : '/parts/home.html'
-      }).state('files', {
-        url: '/files',
-        controller: 'FilesController',
-        controllerAs: 'vm',
-        templateUrl : '/parts/files.html'
-      });
-      $urlRouterProvider.otherwise('');
-    }
-
-  }
-
+ 
   class Section{
     constructor(public id:string, public title:string){}
   }
@@ -34,10 +16,13 @@ module bladepan.site {
       this.sections = [new Section('home', 'Home'), new Section('files', 'Files')];
     }
 
-    sectionClass(section: Section): string {
-      if (this.$state.current.name === section.id) {
-        return 'active';
-      }
+    setRoute(section: Section): void{
+      console.log('go to ' + section.id);
+      this.$state.go(section.id);
+    }
+
+    isSectionActive(section: Section): boolean {
+      return this.$state.current.name === section.id
     }
 
   }
@@ -56,7 +41,7 @@ module bladepan.site {
     private visibleFileCount: number;
     constructor(dataFiles: DataFiles) {
       this.files = dataFiles.files;
-      var visibleFiles = _.filter(this.files, function(file) { 
+      let visibleFiles = _.filter(this.files, function(file) { 
         return file.hide !== true;
       });
       this.visibleFileCount = visibleFiles.length;
@@ -72,13 +57,31 @@ module bladepan.site {
     public files: [DataFile];
   }
 
-  var dataFiles = new DataFiles();
+  let dataFiles = new DataFiles();
   dataFiles.resume = new DataFile('Resume', 'XiaozhongPanResume.pdf', true);
   dataFiles.files = [dataFiles.resume, 
     new DataFile('Virginia Tech Unofficial Academic Transcript', 'XiaozhongPanUnofficialAcademicTranscipt.pdf', true)
   ];
 
-  angular.module('bladepan.site', ['ui.router'], ConfigFn);
+  class ConfigFn {
+    static $inject = ['$stateProvider', '$urlRouterProvider'];
+    constructor($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider) {
+      $stateProvider.state('home', {
+        url: '',
+        controller: HomeController,
+        controllerAs: 'vm',
+        templateUrl: '/parts/home.html'
+      }).state('files', {
+        url: '/files',
+        controller: FilesController,
+        controllerAs: 'vm',
+        templateUrl: '/parts/files.html'
+      });
+      $urlRouterProvider.otherwise('');
+    }
+  }
+
+  angular.module('bladepan.site', ['ui.router', 'ngMaterial'], ConfigFn);
   angular.module('bladepan.site').constant('DataFiles', dataFiles);
   angular.module('bladepan.site').controller(AppController.name, AppController)
     .controller('HomeController', HomeController).controller('FilesController', FilesController);
