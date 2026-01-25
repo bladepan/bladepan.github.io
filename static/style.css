@@ -1,0 +1,286 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 0; /* Adjust padding to allow inner content to be centered */
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center the entire header content */
+    align-items: center;
+}
+
+header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px; /* New max-width for header content */
+    width: 100%;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.site-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#theme-toggle {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Ensure it's a circle */
+    height: 40px; /* Ensure it's a circle */
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+.wrapper {
+    max-width: 960px; /* Reduced max-width */
+    margin: 40px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-about-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0; /* Adjust padding to align with main-content */
+    max-width: 960px; /* Match main-content width */
+    margin: 0 auto; /* Center the wrapper */
+}
+
+#profile, #about {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.profile .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.contact-links {
+    margin-top: 20px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+.contact-links .fab, .contact-links .fas {
+    margin-right: 10px;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    padding: 40px;
+    max-width: 960px; /* Also apply max-width to main-content for consistency */
+    margin: 0 auto; /* Center main content */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #007BFF;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.item {
+    margin-bottom: 15px;
+}
+
+.item h4 {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #0056b3;
+}
+
+.item p {
+    margin: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.gallery .large-image {
+    grid-column: span 2;
+}
+
+#quotes h2 {
+    display: none;
+}
+
+.skills-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    display: inline-block;
+}
+
+.skill-pill {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin: 5px;
+    font-size: 0.9em;
+}
+
+#quotes {
+    background-color: #f8f9fa;
+    padding: 30px;
+}
+
+#quotes .quotes blockquote {
+    font-style: italic;
+    font-size: 1.1em;
+    margin: 10px 0; /* Adjust margin for blockquote */
+    border-left: 1px solid #007BFF; /* Vertical line */
+    padding-left: 15px; /* Space for the line */
+    text-align: left; /* Align to the left */
+}
+
+#quotes .quotes blockquote p {
+    margin: 0; /* Remove default paragraph margin inside blockquote */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .profile-about-wrapper {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .site-title {
+        font-size: 1.2em;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* Dark Theme styles */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme header {
+    background-color: #2a2a2a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .wrapper {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .profile-about-wrapper {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme a {
+    color: #8ab4f8; /* Lighter blue for links in dark mode */
+}
+
+body.dark-theme h2 {
+    border-bottom-color: #8ab4f8;
+    color: #f0f0f0;
+}
+
+body.dark-theme .item h4 {
+    color: #8ab4f8;
+}
+
+body.dark-theme .skill-pill {
+    background-color: #8ab4f8;
+    color: #1a1a1a;
+}
+
+body.dark-theme #quotes {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme #quotes .quotes blockquote {
+    border-left-color: #8ab4f8;
+}
